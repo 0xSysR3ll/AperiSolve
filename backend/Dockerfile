@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:12-slim
 
 
 RUN apt update -y && apt upgrade -y

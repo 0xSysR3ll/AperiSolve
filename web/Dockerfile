@@ -1,9 +1,6 @@
-FROM python:3.10.11-slim-bullseye
+FROM python:3.12-slim
 WORKDIR /app
 COPY . .
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_ENV=development
 RUN pip install -r requirements.txt
 EXPOSE 5000
-CMD ["flask", "run"]
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5000"]
